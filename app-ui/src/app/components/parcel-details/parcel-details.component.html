@@ -33,9 +33,11 @@
     <div>
       <label><b>Siuntos svoris: </b></label> {{parcel.weight}}<b> kg</b>
     </div>
-    <a [routerLink]="['/updateparcel', parcel.id]" class="btn btn-success mr-3">Redaguoti</a>
-    <button class="btn btn-danger mr-3" (click)="removeParcel(parcel)">Ištrinti</button>
-    <a [routerLink]="['/parcels']" class="btn btn-primary">Grįžti</a>
+    <div>
+      <a [routerLink]="['/updateparcel', parcel.id]" class="btn btn-success mr-3">Redaguoti</a>
+      <button class="btn btn-danger mr-3" (click)="removeParcel(parcel)">Ištrinti</button>
+    </div>
+    <a [routerLink]="['/parcels']" class="btn btn-primary mt-3">Grįžti</a>
   </div>
 </div>
 
