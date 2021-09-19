@@ -1,4 +1,4 @@
-<br/>
+<br />
 <div class="card my-5">
   <div class="card-body">
     <h3 class="text-center text-muted">Redaguoti siuntos duomenis</h3>
@@ -118,17 +118,16 @@
       <p class="text-muted font-weight-bold">Siuntos duomenys:</p>
       <div class="row">
         <div class="col">
-          <div class="form-group">
-            <label for="dydis">Siuntos dydis</label>
-            <input type="text" [(ngModel)]="parcel.size"
-                   class="form-control"
-                   id="dydis"
-                   name="dydis"
-                   placeholder="Įveskite siuntos dydį"
-                   required #dydis="ngModel"
-            >
-            <div [hidden]="!dydis.dirty" class="alert alert-danger">Siuntos dydis privalomas!</div>
-          </div>
+          <label for="dydis">Siuntos dydis</label>
+          <form [formGroup]="parcelSizeForm">
+            <select formControlName="countryControl"
+                    [(ngModel)]="parcel.size"
+                    id="dydis"
+                    name="dydis">
+              <option value="" disabled>Pasirinkti iš sąrašo</option>
+              <option [value]="parcel" *ngFor="let parcel of parcelSizes">{{parcel}}</option>
+            </select>
+          </form>
         </div>
         <div class="col">
           <div class="form-group">

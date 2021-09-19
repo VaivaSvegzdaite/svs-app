@@ -1,21 +1,21 @@
-<br />
+<br/>
 <div class="card my-5">
   <div class="card-body">
-    <h3 class="text-center text-muted">Nauja siunta</h3>
+    <h3 class="text-center text-muted">Prašome užpildyti siuntos informaciją</h3>
     <form (ngSubmit)="createParcel()" #userForm="ngForm">
       <p class="text-muted font-weight-bold">Siuntėjo duomenys:</p>
       <div class="row">
         <div class="col">
           <div class="form-group">
-            <label for="siuntejoVardas">Siuntėjo vardas</label>
+            <label for="senderName">Siuntėjo vardas</label>
             <input type="text" [(ngModel)]="parcel.sender.name"
                    class="form-control"
-                   id="siuntejoVardas"
-                   name="siuntejoVardas"
+                   id="senderName"
+                   name="senderName"
                    placeholder="Įveskite siuntėjo vardą"
-                   required #siuntejoVardas="ngModel"
+                   required #senderName="ngModel"
             >
-            <div [hidden]="!siuntejoVardas.dirty" class="alert alert-danger">Siuntėjo vardas privalomas!</div>
+            <div [hidden]="!senderName.dirty" class="alert alert-danger">Siuntėjo vardas privalomas!</div>
           </div>
         </div>
         <div class="col">
@@ -117,18 +117,17 @@
       </div>
       <p class="text-muted font-weight-bold">Siuntos duomenys:</p>
       <div class="row">
-        <div class="col">
-          <div class="form-group">
+          <div class="col">
             <label for="dydis">Siuntos dydis</label>
-            <input type="text" [(ngModel)]="parcel.size"
-                   class="form-control"
-                   id="dydis"
-                   name="dydis"
-                   placeholder="Įveskite siuntos dydį"
-                   required #dydis="ngModel"
-            >
-            <div [hidden]="!dydis.dirty" class="alert alert-danger">Siuntos dydis privalomas!</div>
-          </div>
+            <form [formGroup]="parcelSizeForm">
+              <select formControlName="countryControl"
+                      [(ngModel)]="parcel.size"
+                      id="dydis"
+                      name="dydis">
+                <option value="" disabled>Pasirinkti iš sąrašo</option>
+                <option [value]="parcel" *ngFor="let parcel of parcelSizes">{{parcel}}</option>
+              </select>
+            </form>
         </div>
         <div class="col">
           <div class="form-group">
