@@ -1,0 +1,41 @@
+<br>
+  <div class="card my-5 col-4 mx-auto">
+    <div class="card-body">
+      <h2>Siuntos detalės</h2>
+      <hr/>
+      <div *ngIf="siunta">
+        <div>
+          <label><b>Siuntėjo vardas : </b></label> {{siunta.siuntejas.siuntejoVardas}}
+        </div>
+        <div>
+          <label><b>Siuntėjo pavardė : </b></label> {{siunta.siuntejas.siuntejoPavarde}}
+        </div>
+        <div>
+          <label><b>Siuntėjo adresas : </b></label> {{siunta.siuntejas.siuntejoAdresas}}
+        </div>
+        <div>
+          <label><b>Gavėjo vardas : </b></label> {{siunta.gavejas.gavejoVardas}}
+        </div>
+        <div>
+          <label><b>Gavėjo pavardė : </b></label> {{siunta.gavejas.gavejoPavarde}}
+        </div>
+        <div>
+          <label><b>Gavėjo adresas : </b></label> {{siunta.gavejas.gavejoAdresas}}
+        </div>
+        <div>
+          <label><b>Gavėjo telefonas : </b></label> {{siunta.gavejas.gavejoTelefonas}}
+        </div>
+        <div>
+          <label><b>Gavėjo el. paštas : </b></label> {{siunta.gavejas.gavejoElPastas}}
+        </div>
+        <label><b>Siuntos dydis: </b></label> {{siunta.dydis}}
+      </div>
+      <div>
+        <label><b>Siuntos svoris: </b></label> {{siunta.svoris}}<b> kg</b>
+      </div>
+      <a [routerLink]="['/updatesiunta', siunta.id]" class="btn btn-success mr-3">Redaguoti</a>
+      <button class="btn btn-danger mr-3" (click)="trintiSiunta(siunta)">Ištrinti</button>
+      <a [routerLink]="['/siuntos']" class="btn btn-primary">Grįžti</a>
+    </div>
+  </div>
+

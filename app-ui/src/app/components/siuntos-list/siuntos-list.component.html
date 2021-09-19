@@ -1,0 +1,45 @@
+<br>
+<div class="card my-5">
+  <div class="card-body">
+    <h3 class="text-center text-muted">Siuntų sąrašas</h3>
+    <form>
+      <div class="form-group form-inline">
+        Paieška:
+        <input class="form-control ml-2 col-3" type="text" name="searchUser" placeholder="Įveskite siuntėjo pavardę" [(ngModel)]="searchSiunta"
+               (input)="search($any($event.target).value)"/>
+      </div>
+    </form>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" sortable="siunta.siuntejas.siuntejoVardas" >Siuntėjo vardas</th>
+        <th scope="col" sortable="siunta.siuntejas.siuntejoPavarde" >Siuntėjo pavardė</th>
+        <th scope="col" sortable="siunta.siuntejas.siuntejoVardas" >Gavėjo vardas</th>
+        <th scope="col" sortable="siunta.siuntejas.siuntejoPavarde" >Gavėjo pavardė</th>
+        <th scope="col" sortable="siunta.siuntejas.siuntejoAdresas" >Gavėjo adresas</th>
+        <th scope="col" sortable="siunta.dydis" >Siuntos dydis</th>
+        <th scope="col">Veiksmai</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr
+        *ngFor="let siunta of siuntos | slice: (page-1) * pageSize : page * pageSize; index as i">
+        <th scope="row">{{ (page - 1) * pageSize + i + 1 }}</th>
+        <td>{{ siunta.siuntejas.siuntejoVardas }}</td>
+        <td>{{siunta.siuntejas.siuntejoPavarde}}</td>
+        <td>{{ siunta.gavejas.gavejoVardas }}</td>
+        <td>{{ siunta.gavejas.gavejoPavarde}}</td>
+        <td>{{ siunta.gavejas.gavejoAdresas }}</td>
+        <td>{{siunta.dydis}}</td>
+        <td>
+          <a [routerLink]="['/siuntos/', siunta.id]" class="btn btn-success">Detaliau</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="5" [boundaryLinks]="true"
+                    [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+  </div>
+</div>
+
