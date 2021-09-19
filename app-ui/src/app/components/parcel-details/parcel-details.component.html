@@ -1,0 +1,42 @@
+<br>
+<div class="card my-5 col-4 mx-auto">
+  <div class="card-body">
+    <h2>Siuntos detalės</h2>
+    <hr/>
+    <div *ngIf="parcel">
+      <div>
+        <label><b>Siuntėjo vardas : </b></label> {{parcel.sender.lastName}}
+      </div>
+      <div>
+        <label><b>Siuntėjo pavardė : </b></label> {{parcel.sender.lastName}}
+      </div>
+      <div>
+        <label><b>Siuntėjo adresas : </b></label> {{parcel.sender.address}}
+      </div>
+      <div>
+        <label><b>Gavėjo vardas : </b></label> {{parcel.receiver.name}}
+      </div>
+      <div>
+        <label><b>Gavėjo pavardė : </b></label> {{parcel.receiver.lastName}}
+      </div>
+      <div>
+        <label><b>Gavėjo adresas : </b></label> {{parcel.receiver.address}}
+      </div>
+      <div>
+        <label><b>Gavėjo telefonas : </b></label> {{parcel.receiver.phone}}
+      </div>
+      <div>
+        <label><b>Gavėjo el. paštas : </b></label> {{parcel.receiver.email}}
+      </div>
+      <label><b>Siuntos dydis: </b></label> {{parcel.size}}
+    </div>
+    <div>
+      <label><b>Siuntos svoris: </b></label> {{parcel.weight}}<b> kg</b>
+    </div>
+    <a [routerLink]="['/updateparcel', parcel.id]" class="btn btn-success mr-3">Redaguoti</a>
+    <button class="btn btn-danger mr-3" (click)="removeParcel(parcel)">Ištrinti</button>
+    <a [routerLink]="['/parcels']" class="btn btn-primary">Grįžti</a>
+  </div>
+</div>
+
+

@@ -1,0 +1,45 @@
+<br>
+<div class="card my-5">
+  <div class="card-body">
+    <h3 class="text-center text-muted">Siuntų sąrašas</h3>
+    <form>
+      <div class="form-group form-inline">
+        Paieška:
+        <input class="form-control ml-2 col-3" type="text" name="searchUser" placeholder="Įveskite siuntėjo pavardę" [(ngModel)]="searchSiunta"
+               (input)="search($any($event.target).value)"/>
+      </div>
+    </form>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" sortable="parcel.sender.name" >Siuntėjo vardas</th>
+        <th scope="col" sortable="parcel.sender.lastName" >Siuntėjo pavardė</th>
+        <th scope="col" sortable="parcel.receiver.name" >Gavėjo vardas</th>
+        <th scope="col" sortable="parcel.receiver.lastName" >Gavėjo pavardė</th>
+        <th scope="col" sortable="parcel.receiver.address" >Gavėjo adresas</th>
+        <th scope="col" sortable="size" >Siuntos dydis</th>
+        <th scope="col">Veiksmai</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr
+        *ngFor="let parcel of parcels | slice: (page-1) * pageSize : page * pageSize; index as i">
+        <th scope="row">{{ (page - 1) * pageSize + i + 1 }}</th>
+        <td>{{ parcel.sender.name }}</td>
+        <td>{{parcel.sender.lastName}}</td>
+        <td>{{ parcel.receiver.name }}</td>
+        <td>{{ parcel.receiver.lastName}}</td>
+        <td>{{ parcel.receiver.address }}</td>
+        <td>{{parcel.size}}</td>
+        <td>
+          <a [routerLink]="['/parcels/', parcel.id]" class="btn btn-success">Detaliau</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="5" [boundaryLinks]="true"
+                    [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+  </div>
+</div>
+

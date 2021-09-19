@@ -1,22 +1,23 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {SiuntosListComponent} from "./components/siuntos-list/siuntos-list.component";
-import {SiuntosDetailsComponent} from "./components/siuntos-details/siuntos-details.component";
-import {SiuntosFormComponent} from "./components/siuntos-form/siuntos-form.component";
-import {SiuntosUpdateComponent} from "./components/siuntos-update/siuntos-update.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
+import {ParcelListComponent} from "./components/parcel-list/parcel-list.component";
+import {ParcelDetailsComponent} from "./components/parcel-details/parcel-details.component";
+import {ParcelFormComponent} from "./components/parcel-form/parcel-form.component";
+import {ParcelUpdateComponent} from "./components/parcel-update/parcel-update.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'siuntos', pathMatch: 'full' },
-  { path: 'siuntos', component: SiuntosListComponent },
-  { path: 'siuntos/:id', component: SiuntosDetailsComponent },
-  { path: 'addsiunta', component: SiuntosFormComponent},
-  { path: 'updatesiunta/:id', component: SiuntosUpdateComponent},
-  { path: '**', component: PageNotFoundComponent }
+  {path: '', redirectTo: 'parcels', pathMatch: 'full'},
+  {path: 'parcels', component: ParcelListComponent},
+  {path: 'parcels/:id', component: ParcelDetailsComponent},
+  {path: 'addparcel', component: ParcelFormComponent},
+  {path: 'updateparcel/:id', component: ParcelUpdateComponent},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
