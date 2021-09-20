@@ -24,7 +24,7 @@ Home page info
 
 Add parcel form info
 <p align="center">
-  <img src="readme-img/add-form.png" alt="Main" />
+  <img src="readme-img/add.png" alt="Main" />
 </p>
 
 Details view info
@@ -34,7 +34,7 @@ Details view info
 
 Edit form info
 <p align="center">
-  <img src="readme-img/edit-form.png" alt="Main" />
+  <img src="readme-img/edit.png" alt="Main" />
 </p>
 
 ### Prerequisites
