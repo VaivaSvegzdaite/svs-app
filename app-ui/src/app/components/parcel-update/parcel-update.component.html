@@ -1,4 +1,4 @@
-<br />
+<br/>
 <div class="card my-5">
   <div class="card-body">
     <h3 class="text-center text-muted">Redaguoti siuntos duomenis</h3>
@@ -7,40 +7,54 @@
       <div class="row">
         <div class="col">
           <div class="form-group">
-            <label for="siuntejoVardas">Siuntėjo vardas</label>
+            <label for="senderName">Siuntėjo vardas</label>
             <input type="text" [(ngModel)]="parcel.sender.name"
                    class="form-control"
-                   id="siuntejoVardas"
-                   name="siuntejoVardas"
+                   id="senderName"
+                   name="senderName"
                    placeholder="Įveskite siuntėjo vardą"
-                   required #siuntejoVardas="ngModel"
+                   required #senderName="ngModel"
             >
-            <div [hidden]="!siuntejoVardas.dirty" class="alert alert-danger">Siuntėjo vardas privalomas!</div>
+            <div *ngIf="senderName.errors && (senderName.dirty || senderName.touched)" class="alert alert-danger">
+              <div [hidden]="!senderName.errors.required">
+                Siuntėjo vardas privalomas!
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="siuntejoPavarde">Siuntėjo pavardė</label>
+            <label for="senderLastName">Siuntėjo pavardė</label>
             <input type="text" [(ngModel)]="parcel.sender.lastName"
                    class="form-control"
-                   id="siuntejoPavarde"
-                   name="siuntejoPavarde"
+                   id="senderLastName"
+                   name="senderLastName"
                    placeholder="Įveskite siuntėjo pavardę"
-                   required #siuntejoPavarde="ngModel"
+                   required #senderLastName="ngModel"
             >
-            <div [hidden]="!siuntejoPavarde.dirty" class="alert alert-danger">Siuntėjo pavardė privaloma!</div>
+            <div *ngIf="senderLastName.errors && (senderLastName.dirty || senderLastName.touched)"
+                 class="alert alert-danger">
+              <div [hidden]="!senderLastName.errors.required">
+                Siuntėjo pavardė privaloma!
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="siuntejoAdresas">Siuntėjo adresas</label>
-            <input type="text" [(ngModel)]="parcel.sender.lastName"
+            <label for="senderAddress">Siuntėjo adresas</label>
+            <input type="text" [(ngModel)]="parcel.sender.address"
                    class="form-control"
-                   id="siuntejoAdresas"
-                   name="siuntejoAdresas"
+                   id="senderAddress"
+                   name="senderAddress"
                    placeholder="Įveskite siuntėjo adresą"
-                   required #siuntejoAdresas="ngModel">
-            <div [hidden]="!siuntejoAdresas.dirty" class="alert alert-danger">Siuntėjo adresas privalomas!</div>
+                   required #senderAddress="ngModel">
+            <div *ngIf="senderAddress.errors && (senderAddress.dirty || senderAddress.touched)"
+                 class="alert alert-danger">
+              <div [hidden]="!senderAddress.errors.required">
+                Siuntėjo adresas privalomas!
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -48,69 +62,100 @@
       <div class="row">
         <div class="col">
           <div class="form-group">
-            <label for="gavejoVardas">Gavėjo vardas</label>
+            <label for="receiverName">Gavėjo vardas</label>
             <input type="text" [(ngModel)]="parcel.receiver.name"
                    class="form-control"
-                   id="gavejoVardas"
-                   name="gavejoVardas"
+                   id="receiverName"
+                   name="receiverName"
                    placeholder="Įveskite gavėjo vardą"
-                   required #gavejoVardas="ngModel"
+                   required #receiverName="ngModel"
             >
-            <div [hidden]="!gavejoVardas.dirty" class="alert alert-danger">Gavėjo vardas privalomas!</div>
+            <div *ngIf="receiverName.errors && (receiverName.dirty || receiverName.touched)" class="alert alert-danger">
+              <div [hidden]="!receiverName.errors.required">
+                Gavėjo vardas privalomas!
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="gavejoPavarde">Gavėjo pavardė</label>
+            <label for="receiverLastName">Gavėjo pavardė</label>
             <input type="text" [(ngModel)]="parcel.receiver.lastName"
                    class="form-control"
-                   id="gavejoPavarde"
-                   name="gavejoPavarde"
+                   id="receiverLastName"
+                   name="receiverLastName"
                    placeholder="Įveskite gavėjo pavardę"
-                   required #gavejoPavarde="ngModel"
+                   required #receiverLastName="ngModel"
             >
-            <div [hidden]="!gavejoPavarde.dirty" class="alert alert-danger">Gavėjo pavardė privaloma!</div>
+            <div *ngIf="receiverLastName.errors && (receiverLastName.dirty || receiverLastName.touched)"
+                 class="alert alert-danger">
+              <div [hidden]="!receiverLastName.errors.required">
+                Gavėjo pavardė privaloma!
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="gavejoAdresas">Gavėjo adresas</label>
+            <label for="receiverAddress">Gavėjo adresas</label>
             <input type="text" [(ngModel)]="parcel.receiver.address"
                    class="form-control"
-                   id="gavejoAdresas"
-                   name="gavejoAdresas"
+                   id="receiverAddress"
+                   name="receiverAddress"
                    placeholder="Įveskite gavėjo adresą"
-                   required #gavejoAdresas="ngModel"
+                   required #receiverAddress="ngModel"
             >
-            <div [hidden]="!gavejoAdresas.dirty" class="alert alert-danger">Gavėjo adresas privalomas!</div>
+            <div *ngIf="receiverAddress.errors && (receiverAddress.dirty || receiverAddress.touched)"
+                 class="alert alert-danger">
+              <div [hidden]="!receiverAddress.errors.required">
+                Gavėjo adresas privalomas!
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <div class="form-group">
-            <label for="gavejoTelefonas">Gavėjo telefonas</label>
+            <label for="phone">Gavėjo telefonas</label>
             <input type="number" [(ngModel)]="parcel.receiver.phone"
                    class="form-control"
-                   id="gavejoTelefonas"
-                   name="gavejoTelefonas"
-                   placeholder="Įveskite gavėjo telefoną"
-                   required #gavejoTelefonas="ngModel"
+                   id="phone"
+                   name="phone"
+
+                   placeholder="370xxxxxxxx"
+                   pattern="^((\\370-?))?[0-9]{11}$"
+                   required #phone="ngModel"
             >
-            <div [hidden]="!gavejoTelefonas.dirty" class="alert alert-danger">Gavėjo telefonas privalomas!</div>
+            <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+              <div *ngIf="phone.errors?.required">
+                Gavėjo telefonas privalomas!
+              </div>
+              <div *ngIf="phone.errors?.pattern">
+                Netinkamas telefono formatas! Ilgis 11 simobolių!
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="gavejoElPastas">Gavėjo el.paštas</label>
-            <input type="text" [(ngModel)]="parcel.receiver.email"
+            <label for="email">Gavėjo el.paštas</label>
+            <input type="email" [(ngModel)]="parcel.receiver.email"
                    class="form-control"
-                   id="gavejoElPastas"
-                   name="gavejoElPastas"
+                   id="email"
+                   name="email"
                    placeholder="Įveskite gavėjo el. paštą"
-                   required #gavejoElPastas="ngModel"
+                   pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                   required #email="ngModel"
             >
-            <div [hidden]="!gavejoElPastas.dirty" class="alert alert-danger">Gavėjo el. paštas privalomas!</div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+              <div *ngIf="email.errors?.required">
+                Gavėjo el. paštas privalomas!
+              </div>
+              <div *ngIf="email.errors?.pattern">
+                Netinkamas formatas!
+              </div>
+            </div>
           </div>
         </div>
         <div class="col"></div>
@@ -118,12 +163,13 @@
       <p class="text-muted font-weight-bold">Siuntos duomenys:</p>
       <div class="row">
         <div class="col">
-          <label for="dydis">Siuntos dydis</label>
+          <label for="size">Siuntos dydis</label>
           <form [formGroup]="parcelSizeForm">
-            <select formControlName="countryControl"
+            <select formControlName="parcelSizeControl"
                     [(ngModel)]="parcel.size"
-                    id="dydis"
-                    name="dydis">
+                    id="size"
+                    for="size"
+                    name="size">
               <option value="" disabled>Pasirinkti iš sąrašo</option>
               <option [value]="parcel" *ngFor="let parcel of parcelSizes">{{parcel}}</option>
             </select>
@@ -131,15 +177,23 @@
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="svoris">Siuntos svoris</label>
+            <label for="weight">Siuntos svoris</label>
             <input type="number" [(ngModel)]="parcel.weight"
                    class="form-control"
-                   id="svoris"
-                   name="svoris"
+                   id="weight"
+                   name="weight"
+                   min="0"
+                   step='0.01'
+                   value='0.00'
+                   placeholder='0.00'
                    placeholder="Įveskite siuntos svorį"
-                   required #svoris="ngModel"
+                   required #weight="ngModel"
             >
-            <div [hidden]="!svoris.dirty" class="alert alert-danger">Siuntos svoris privalomas!</div>
+            <div *ngIf="weight.errors && (weight.dirty || weight.touched)" class="alert alert-danger">
+              <div [hidden]="!weight.errors.required">
+                Siuntos svoris privalomas!
+              </div>
+            </div>
           </div>
         </div>
         <div class="col"></div>

@@ -9,9 +9,9 @@ import {Parcel, ParcelService} from "../../services/parcel.service";
 export class ParcelListComponent implements OnInit {
 
   parcels!: Parcel[];
-  isLoading = true;
-  page = 1;
-  pageSize = 5;
+  isLoading: boolean = true;
+  page: number = 1;
+  pageSize: number = 5;
   collectionSize!: number;
   allSiuntos!: Parcel[];
   searchSiunta!: string;
@@ -20,12 +20,14 @@ export class ParcelListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.parcelService.getParcels().subscribe((data: Parcel[]) => {
       this.collectionSize = data.length;
       this.parcels = data;
       this.allSiuntos = this.parcels;
+      this.isLoading = false;
     })
-    this.isLoading = false;
+
   }
 
   search(value: string): void {

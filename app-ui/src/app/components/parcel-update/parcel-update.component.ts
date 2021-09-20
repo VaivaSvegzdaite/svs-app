@@ -15,21 +15,18 @@ export class ParcelUpdateComponent implements OnInit {
   id!: number;
   parcel!: Parcel;
   parcelSizeForm!: FormGroup;
-  parcelSizes = ['S - siuntos dydis iki 0.5 kg',
-    'M - siuntos dydis iki 2 kg',
-    'L - siuntos dydis iki 9 kg',
-    'XL - siuntos dydis nuo 10 kg']
+  parcelSizes = ['S', 'M', 'L', 'XL']
 
   constructor(private parcelService: ParcelService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
     this.parcelSizeForm = this.fb.group({
-      countryControl: ['Select']
+      parcelSizeControl: ['Select']
     });
-    this.parcel = new Parcel(Number(''), '', Number(''),
+    this.parcel = new Parcel(Number(''), '', '',
       new Sender(Number(''), '', '', ''),
-      new Receiver(Number(''), '', '', '', Number(''), ''));
+      new Receiver(Number(''), '', '', '', '', ''));
     this.id = this.route.snapshot.params['id'];
     this.parcelService.getParcel(this.id).subscribe(data => {
       this.parcel = data;
@@ -38,9 +35,9 @@ export class ParcelUpdateComponent implements OnInit {
 
   editParcel() {
     this.parcelService.updateParcel(this.id, this.parcel).subscribe();
-    this.parcel = new Parcel(Number(''), '', Number(''),
+    this.parcel = new Parcel(Number(''), '', '',
       new Sender(Number(''), '', '', ''),
-      new Receiver(Number(''), '', '', '', Number(''), ''));
+      new Receiver(Number(''), '', '', '', '', ''));
     this.parcelsList();
   }
 

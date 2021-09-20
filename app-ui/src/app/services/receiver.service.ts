@@ -8,7 +8,7 @@ export class Receiver {
     public name: string,
     public lastName: string,
     public address: string,
-    public phone: number,
+    public phone: string,
     public email: string
   ) {
   }

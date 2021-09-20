@@ -5,7 +5,8 @@
     <form>
       <div class="form-group form-inline">
         Paieška:
-        <input class="form-control ml-2 col-3" type="text" name="searchUser" placeholder="Įveskite siuntėjo pavardę" [(ngModel)]="searchSiunta"
+        <input class="form-control ml-2 col-3" type="text" name="searchUser" placeholder="Įveskite siuntėjo pavardę"
+               [(ngModel)]="searchSiunta"
                (input)="search($any($event.target).value)"/>
       </div>
     </form>
@@ -13,12 +14,12 @@
       <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
-        <th scope="col" sortable="parcel.sender.name" >Siuntėjo vardas</th>
-        <th scope="col" sortable="parcel.sender.lastName" >Siuntėjo pavardė</th>
-        <th scope="col" sortable="parcel.receiver.name" >Gavėjo vardas</th>
-        <th scope="col" sortable="parcel.receiver.lastName" >Gavėjo pavardė</th>
-        <th scope="col" sortable="parcel.receiver.address" >Gavėjo adresas</th>
-        <th scope="col" sortable="size" >Siuntos dydis</th>
+        <th scope="col" sortable="parcel.sender.name">Siuntėjo vardas</th>
+        <th scope="col" sortable="parcel.sender.lastName">Siuntėjo pavardė</th>
+        <th scope="col" sortable="parcel.receiver.name">Gavėjo vardas</th>
+        <th scope="col" sortable="parcel.receiver.lastName">Gavėjo pavardė</th>
+        <th scope="col" sortable="parcel.receiver.address">Gavėjo adresas</th>
+        <th scope="col" sortable="size">Siuntos dydis</th>
         <th scope="col">Veiksmai</th>
       </tr>
       </thead>
@@ -40,6 +41,11 @@
     </table>
     <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="5" [boundaryLinks]="true"
                     [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+  </div>
+  <div *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center; background: white;">
+    <img src='./assets/images/spinner.gif'
+         alt="Loading..."
+    />
   </div>
 </div>
 

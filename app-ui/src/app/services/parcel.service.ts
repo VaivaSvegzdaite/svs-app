@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Sender} from "./sender.service";
@@ -8,7 +8,7 @@ export class Parcel {
   constructor(
     public id: number,
     public size: string,
-    public weight: number,
+    public weight: string,
     public sender: Sender,
     public receiver: Receiver
   ) {
@@ -22,7 +22,8 @@ export class ParcelService {
 
   private baseUrl = 'http://localhost:8080';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getParcels() {
     return this.httpClient.get<Parcel[]>(`${this.baseUrl}/parcels`);

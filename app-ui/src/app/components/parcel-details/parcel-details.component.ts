@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Parcel, ParcelService} from "../../services/parcel.service";
 
@@ -12,10 +12,11 @@ export class ParcelDetailsComponent implements OnInit {
   parcel!: Parcel;
   parcels: Parcel[] = [];
 
-  constructor(private parcelService: ParcelService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private parcelService: ParcelService, private activatedRoute: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit(): void {
-    this.parcel = new Parcel(Number(''), '', Number(''), Object(''), Object(''));
+    this.parcel = new Parcel(Number(''), '', '', Object(''), Object(''));
     this.id = this.activatedRoute.snapshot.params['id'];
     this.parcelService.getParcel(this.id)
       .subscribe(data => {

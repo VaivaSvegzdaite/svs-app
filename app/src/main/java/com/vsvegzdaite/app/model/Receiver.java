@@ -20,13 +20,13 @@ public class Receiver {
     private  String name;
     private  String lastName;
     private String address;
-    private Integer phone;
+    private Long phone;
     private String email;
     @OneToMany(mappedBy = "receiver", cascade = {CascadeType.ALL})
     @JsonIgnore
     private Set<Parcel> parcels;
 
-    public Receiver(Long id, String name, String lastName, String address, Integer phone, String email, Set<Parcel> parcels) {
+    public Receiver(Long id, String name, String lastName, String address, Long phone, String email, Set<Parcel> parcels) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -36,7 +36,7 @@ public class Receiver {
         this.parcels = parcels;
     }
 
-    public Receiver(String name, String lastName, String address, Integer phone, String email, Set<Parcel> parcels) {
+    public Receiver(String name, String lastName, String address, Long phone, String email, Set<Parcel> parcels) {
         this.name = name;
         this.lastName = lastName;
         this.address = address;
