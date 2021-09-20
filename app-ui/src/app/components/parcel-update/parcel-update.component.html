@@ -118,13 +118,12 @@
         <div class="col">
           <div class="form-group">
             <label for="phone">Gavėjo telefonas</label>
-            <input type="number" [(ngModel)]="parcel.receiver.phone"
+            <input type="tel" [(ngModel)]="parcel.receiver.phone"
                    class="form-control"
                    id="phone"
                    name="phone"
-
-                   placeholder="370xxxxxxxx"
-                   pattern="^((\\370-?))?[0-9]{11}$"
+                   placeholder="Įveskite telefono numerį"
+                   pattern="^((\\370-?|0))?[0-9]{11}$"
                    required #phone="ngModel"
             >
             <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">

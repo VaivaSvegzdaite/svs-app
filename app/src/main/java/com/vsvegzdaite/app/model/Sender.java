@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,21 +23,19 @@ public class Sender {
     private String address;
     @OneToMany(mappedBy = "sender", cascade = {CascadeType.ALL})
     @JsonIgnore
-    private Set<Parcel> parcels;
+    private Set<Parcel> parcels = new HashSet<>();
 
-    public Sender(Long id, String name, String lastName, String address, Set<Parcel> parcels) {
+    public Sender(Long id, String name, String lastName, String address) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.address = address;
-        this.parcels = parcels;
     }
 
-    public Sender(String name, String lastName, String address, Set<Parcel> parcels) {
+    public Sender(String name, String lastName, String address) {
         this.name = name;
         this.lastName = lastName;
         this.address = address;
-        this.parcels = parcels;
     }
 
     @Override

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -24,25 +25,23 @@ public class Receiver {
     private String email;
     @OneToMany(mappedBy = "receiver", cascade = {CascadeType.ALL})
     @JsonIgnore
-    private Set<Parcel> parcels;
+    private Set<Parcel> parcels = new HashSet<>();
 
-    public Receiver(Long id, String name, String lastName, String address, Long phone, String email, Set<Parcel> parcels) {
+    public Receiver(Long id, String name, String lastName, String address, Long phone, String email) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.parcels = parcels;
     }
 
-    public Receiver(String name, String lastName, String address, Long phone, String email, Set<Parcel> parcels) {
+    public Receiver(String name, String lastName, String address, Long phone, String email) {
         this.name = name;
         this.lastName = lastName;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.parcels = parcels;
     }
 
     @Override

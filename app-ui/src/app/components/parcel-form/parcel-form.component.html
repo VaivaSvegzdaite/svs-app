@@ -123,8 +123,8 @@
                    id="phone"
                    name="phone"
                    min="370"
-                   placeholder="370xxxxxxxx"
-                   pattern="^((\\370-?))?[0-9]{11}$"
+                   placeholder="Įveskite telefono numerį"
+                   pattern="^((\\370-?|0))?[0-9]{11}$"
                    required #phone="ngModel"
             >
             <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
@@ -132,7 +132,7 @@
                 Gavėjo telefonas privalomas!
               </div>
               <div *ngIf="phone.errors?.pattern">
-                Netinkamas telefono formatas! Ilgis 11 simobolių!
+                Telefono nr. 11 simbolių!
               </div>
             </div>
           </div>
