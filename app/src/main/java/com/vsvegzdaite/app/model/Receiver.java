@@ -1,18 +1,18 @@
 package com.vsvegzdaite.app.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Receiver {
 
     @Id
@@ -29,14 +29,6 @@ public class Receiver {
 
     public Receiver(Long id, String name, String lastName, String address, Long phone, String email) {
         this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
-    }
-
-    public Receiver(String name, String lastName, String address, Long phone, String email) {
         this.name = name;
         this.lastName = lastName;
         this.address = address;

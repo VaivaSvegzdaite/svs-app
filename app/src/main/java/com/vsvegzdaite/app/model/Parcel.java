@@ -1,15 +1,15 @@
 package com.vsvegzdaite.app.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Data
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Parcel {
 
     @Id
@@ -21,21 +21,6 @@ public class Parcel {
     private Receiver receiver;
     private String size;
     private Double weight;
-
-    public Parcel(Long id, Sender sender, Receiver receiver, String size, Double weight) {
-        this.id = id;
-        this.sender = sender;
-        this.receiver = receiver;
-        this.size = size;
-        this.weight = weight;
-    }
-
-    public Parcel(Sender sender, Receiver receiver, String size, Double weight) {
-        this.sender = sender;
-        this.receiver = receiver;
-        this.size = size;
-        this.weight = weight;
-    }
 
     @Override
     public String toString() {
