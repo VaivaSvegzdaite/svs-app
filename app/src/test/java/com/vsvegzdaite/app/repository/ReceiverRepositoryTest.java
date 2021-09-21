@@ -33,15 +33,15 @@ public class ReceiverRepositoryTest {
 //        Assertions.assertThat(receiver.getId()).isGreaterThan(0);
 //    }
 
-    @Test
-    @Order(2)
-    public void getReceiverTest() {
-
-        Receiver receiver = receiverDAO.findById(1L).orElseGet(null);
-
-        Assertions.assertThat(receiver.getId()).isEqualTo(1L);
-
-    }
+//    @Test
+//    @Order(2)
+//    public void getReceiverTest() {
+//
+//        Receiver receiver = receiverDAO.findById(1L).orElseGet(null);
+//
+//        Assertions.assertThat(receiver.getId()).isEqualTo(1L);
+//
+//    }
 
     @Test
     @Order(3)
@@ -53,20 +53,20 @@ public class ReceiverRepositoryTest {
 
     }
 
-    @Test
-    @Order(4)
-    @Rollback(value = false)
-    public void updateReceiverTest() {
-
-        Receiver receiver = receiverDAO.findById(1L).orElseGet(null);
-
-        receiver.setEmail("updReceiver@receiver.com");
-
-        Receiver receiverUpdated = receiverDAO.save(receiver);
-
-        Assertions.assertThat(receiver.getEmail()).isEqualTo("updReceiver@receiver.com");
-
-    }
+//    @Test
+//    @Order(4)
+//    @Rollback(value = false)
+//    public void updateReceiverTest() {
+//
+//        Receiver receiver = receiverDAO.findById(1L).orElseGet(null);
+//
+//        receiver.setEmail("updReceiver@receiver.com");
+//
+//        Receiver receiverUpdated = receiverDAO.save(receiver);
+//
+//        Assertions.assertThat(receiver.getEmail()).isEqualTo("updReceiver@receiver.com");
+//
+//    }
 
 //    @Test
 //    @Order(5)

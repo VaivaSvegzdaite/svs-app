@@ -124,6 +124,8 @@
                    name="phone"
                    placeholder="Įveskite telefono numerį"
                    pattern="^((\\370-?|0))?[0-9]{11}$"
+                   onkeydown="return event.keyCode === 8 ||
+                   event.keyCode === 46 ? true : !isNaN(Number(event.key))"
                    required #phone="ngModel"
             >
             <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
@@ -131,7 +133,7 @@
                 Gavėjo telefonas privalomas!
               </div>
               <div *ngIf="phone.errors?.pattern">
-                Netinkamas telefono formatas! Ilgis 11 simobolių!
+                Telefono numeris 11 skaičių!
               </div>
             </div>
           </div>

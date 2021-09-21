@@ -44,7 +44,7 @@ public class ParcelRepositoryTest {
 //    @Order(2)
 //    public void getParcelTest() {
 //
-//        Parcel parcel = parcelDAO.findById(1L).orElseGet(null);
+//        Parcel parcel = parcelDAO.findById(1L).get();
 //
 //        Assertions.assertThat(parcel.getId()).isEqualTo(1L);
 //
@@ -65,7 +65,7 @@ public class ParcelRepositoryTest {
 //    @Rollback(value = false)
 //    public void updateParcelTest() {
 //
-//        Parcel parcel = parcelDAO.findById(1L).orElseGet(null);
+//        Parcel parcel = parcelDAO.findById(1L).get();
 //
 //        parcel.setSize("S");
 //
@@ -74,14 +74,13 @@ public class ParcelRepositoryTest {
 //        Assertions.assertThat(parcel.getSize()).isEqualTo("S");
 //
 //    }
-
+//
 //    @Test
 //    @Order(5)
 //    @Rollback(value = false)
 //    public void deleteParcelTest() {
 //
-//        Parcel parcel = parcelDAO.findById(1L).isPresent() ?
-//                parcelDAO.findById(1L).get() : null;
+//        Parcel parcel = parcelDAO.findById(1L).get();
 //
 //        parcelDAO.delete(parcel);
 //
