@@ -5,33 +5,33 @@
     <hr/>
     <div *ngIf="parcel">
       <div>
-        <label><b>Siuntėjo vardas : </b></label> {{parcel.sender.lastName}}
+        <label>Siuntėjo vardas : </label> {{parcel.sender.lastName}}
       </div>
       <div>
-        <label><b>Siuntėjo pavardė : </b></label> {{parcel.sender.lastName}}
+        <label>Siuntėjo pavardė : </label> {{parcel.sender.lastName}}
       </div>
       <div>
-        <label><b>Siuntėjo adresas : </b></label> {{parcel.sender.address}}
+        <label>Siuntėjo adresas :</label> {{parcel.sender.address}}
       </div>
       <div>
-        <label><b>Gavėjo vardas : </b></label> {{parcel.receiver.name}}
+        <label>Gavėjo vardas :</label> {{parcel.receiver.name}}
       </div>
       <div>
-        <label><b>Gavėjo pavardė : </b></label> {{parcel.receiver.lastName}}
+        <label>Gavėjo pavardė :</label> {{parcel.receiver.lastName}}
       </div>
       <div>
-        <label><b>Gavėjo adresas : </b></label> {{parcel.receiver.address}}
+        <label>Gavėjo adresas :</label> {{parcel.receiver.address}}
       </div>
       <div>
-        <label><b>Gavėjo telefonas : </b></label> {{parcel.receiver.phone}}
+        <label>Gavėjo telefonas :</label> {{parcel.receiver.phone}}
       </div>
       <div>
-        <label><b>Gavėjo el. paštas : </b></label> {{parcel.receiver.email}}
+        <label>Gavėjo el. paštas :</label> {{parcel.receiver.email}}
       </div>
-      <label><b>Siuntos dydis: </b></label> {{parcel.size}}
+      <label>Siuntos dydis:</label> {{parcel.size}}
     </div>
     <div>
-      <label><b>Siuntos svoris: </b></label> {{parcel.weight}}<b> kg</b>
+      <label>Siuntos svoris:</label> {{parcel.weight}} kg
     </div>
     <div>
       <a [routerLink]="['/updateparcel', parcel.id]" class="btn btn-success mr-3">Redaguoti</a>

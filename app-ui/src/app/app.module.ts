@@ -5,7 +5,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './app.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
@@ -18,7 +17,6 @@ import { ParcelUpdateComponent } from './components/parcel-update/parcel-update.
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
     HeaderComponent,
     FooterComponent,
     ParcelListComponent,

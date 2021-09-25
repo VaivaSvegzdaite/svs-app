@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 import {ParcelListComponent} from "./components/parcel-list/parcel-list.component";
 import {ParcelDetailsComponent} from "./components/parcel-details/parcel-details.component";
 import {ParcelFormComponent} from "./components/parcel-form/parcel-form.component";
@@ -12,7 +11,7 @@ const routes: Routes = [
   {path: 'parcels/:id', component: ParcelDetailsComponent},
   {path: 'addparcel', component: ParcelFormComponent},
   {path: 'updateparcel/:id', component: ParcelUpdateComponent},
-  {path: '**', component: PageNotFoundComponent}
+  {path: '**', redirectTo: 'parcels', pathMatch: 'full'}
 ];
 
 @NgModule({
